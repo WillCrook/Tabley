@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabley | Business & Brand Strategy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              zinc: {
+                50: '#fafafa',
+                100: '#f4f4f5', // Secondary UI
+                800: '#27272a', // Primary UI
+                900: '#18181b', // Text
+              },
+              emerald: {
+                600: '#059669', // Accent
+                700: '#047857',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            boxShadow: {
+              'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+              'glow': '0 0 15px rgba(5, 150, 105, 0.3)',
+            },
+            animation: {
+              scroll: 'scroll 40s linear infinite',
+              float: 'float 6s ease-in-out infinite',
+              'fade-in': 'fadeIn 0.5s ease-in-out',
+              'fade-in-up': 'fadeInUp 0.5s ease-out',
+            },
+            keyframes: {
+              scroll: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-100%)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px; 
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        color: #18181b;
+        background-color: #ffffff;
+      }
+     
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+    
+      .no-scrollbar {
+        -ms-overflow-style: none;  
+        scrollbar-width: none;  
+      }
+      
+      .perspective-1000 {
+        perspective: 1000px;
+      }
+      
+      .rotate-x-1 {
+        transform: rotateX(1deg);
+      }
+      
+      .hover\:rotate-x-2:hover {
+        transform: rotateX(2deg);
+      }
+
+    
+      main section > div, footer > div {
+        position: relative;
+        z-index: 10;
+      }
+    </style>
+
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-CK_4sDtl.js"></script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
