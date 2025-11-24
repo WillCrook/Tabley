@@ -20,11 +20,6 @@ const Hero: React.FC<HeroProps> = ({ onBookDemo }) => {
           
           {/* LEFT COLUMN: Text Content */}
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-50 border border-zinc-200 text-zinc-600 text-xs font-medium mb-8 animate-fade-in-up">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              The Operating System for Independents
-            </div>
-
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tighter text-zinc-900 mb-6 leading-[0.95]">
               Turn Chaos <br/> <span className="text-zinc-400">into</span> Control.
             </h1>
