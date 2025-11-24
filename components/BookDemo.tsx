@@ -40,7 +40,7 @@ const BookDemo: React.FC<BookDemoProps> = ({ onBack }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentReviewIndex((prevIndex) => (prevIndex + 1) % reviews.length);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(interval);
   }, [reviews.length]);
 
@@ -91,10 +91,13 @@ const BookDemo: React.FC<BookDemoProps> = ({ onBack }) => {
         </div>
 
         <div className="relative z-10">
-          <div className="flex items-center gap-1.5 mb-12">
+          <button 
+            onClick={onBack}
+            className="flex items-center gap-1.5 mb-12 hover:opacity-80 transition-opacity cursor-pointer text-left"
+          >
              <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
              <span className="text-xl font-bold tracking-tighter">Tabley.</span>
-          </div>
+          </button>
           
           <h1 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
             The new standard for modern hospitality.
@@ -125,9 +128,9 @@ const BookDemo: React.FC<BookDemoProps> = ({ onBack }) => {
           </div>
         </div>
 
-        <div className="relative z-10 mt-12 lg:mt-0 h-48">
+        <div className="relative z-10 mt-12 lg:mt-0 h-48 flex flex-col justify-end">
           {/* Rotating Review Card */}
-          <div key={currentReviewIndex} className="bg-zinc-800/50 backdrop-blur-sm p-6 rounded-2xl border border-zinc-700 animate-fade-in">
+          <div key={currentReviewIndex} className="bg-zinc-800/50 backdrop-blur-sm p-6 rounded-2xl border border-zinc-700 animate-fade-in w-full">
             <div className="flex gap-1 mb-3">
                {[1,2,3,4,5].map(i => <Star key={i} size={14} className="fill-orange-500 text-orange-500"/>)}
             </div>
@@ -148,7 +151,7 @@ const BookDemo: React.FC<BookDemoProps> = ({ onBack }) => {
       </div>
 
       {/* Right Side - Form */}
-      <div className="lg:w-7/12 bg-white p-8 lg:p-16 overflow-y-auto flex flex-col justify-center">
+      <div className="lg:w-7/12 bg-white p-8 lg:p-16 overflow-y-auto flex flex-col justify-center min-h-screen">
         <div className="max-w-md mx-auto w-full">
           <button 
             onClick={onBack} 
