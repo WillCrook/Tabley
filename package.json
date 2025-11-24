@@ -2,7 +2,7 @@
   "name": "tabley",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://willcrook.github.io/tabley",
+  "homepage": "https://willcrook.github.io/Tabley",
   "type": "module",
   "scripts": {
     "dev": "vite",
