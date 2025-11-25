@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Check, Lock, Download, Shield, MessageSquare } from 'lucide-react';
+import { X, Check, Lock, Download, Shield, MessageSquare, ChevronRight, Calendar, Clock, User, ChefHat, Activity, Tags, AlertCircle } from 'lucide-react';
 
 const Features: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ const Features: React.FC = () => {
           <h2 className="text-sm font-bold text-emerald-600 uppercase tracking-widest mb-3">The Difference</h2>
           <h3 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-6">Why we win against the giants.</h3>
           <p className="text-lg text-zinc-600">
-            Three reasons why independent restaurants are switching to Tabley.
+            Five reasons why independent restaurants are switching to Tabley.
           </p>
         </div>
 
@@ -27,7 +27,7 @@ const Features: React.FC = () => {
                       <div className="w-12 h-3 bg-zinc-300 rounded"></div>
                       <X className="w-4 h-4 text-red-500" />
                     </div>
-                    <div className="border border-t-0 border-zinc-200 rounded-b-lg p-4 space-y-3 bg-white">
+                    <div className="border border-t-0 border-zinc-200 rounded-b-lg p-4 space-y-3 bg-white h-full min-h-[220px]">
                       <div className="h-8 bg-zinc-100 border border-zinc-200 rounded w-full"></div>
                       <div className="h-8 bg-zinc-100 border border-zinc-200 rounded w-full"></div>
                       <div className="h-8 bg-zinc-800 rounded w-full flex items-center justify-center text-[10px] text-white">Sign In</div>
@@ -35,20 +35,59 @@ const Features: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Right: Tabley (Good) */}
-                  <div className="flex-1 transform scale-105 shadow-lg rounded-lg z-10 bg-white">
-                    <div className="bg-emerald-600 rounded-t-lg p-2 flex justify-between items-center">
-                      <div className="w-12 h-3 bg-white/30 rounded"></div>
-                      <div className="bg-white/20 rounded-full p-0.5">
-                         <Check className="w-3 h-3 text-white" />
+                  {/* Right: Tabley (Good - Realistic Widget UI) */}
+                  <div className="flex-1 transform scale-105 shadow-xl rounded-lg z-10 bg-white ring-1 ring-zinc-100">
+                    <div className="bg-white border-b border-zinc-100 rounded-t-lg p-3 flex justify-between items-center">
+                      <div className="flex items-center gap-1.5">
+                         <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                         <span className="text-[10px] font-bold text-zinc-900">Book Table</span>
+                      </div>
+                      <div className="bg-emerald-50 rounded-full p-1">
+                         <Check className="w-2.5 h-2.5 text-emerald-600" />
                       </div>
                     </div>
-                    <div className="border border-t-0 border-zinc-100 rounded-b-lg p-4 space-y-3">
-                      <div className="space-y-1">
-                        <div className="h-2 w-8 bg-zinc-100 rounded"></div>
-                        <div className="h-8 bg-zinc-50 border border-zinc-200 rounded w-full"></div>
+                    
+                    {/* Booking Flow UI */}
+                    <div className="p-3 space-y-3">
+                      {/* Date Selector */}
+                      <div>
+                        <div className="text-[9px] font-bold text-zinc-400 uppercase mb-1">Date</div>
+                        <div className="flex gap-1 overflow-x-hidden">
+                           <div className="bg-zinc-900 text-white rounded px-2 py-1 text-[9px] text-center min-w-[36px]">
+                              <div className="font-bold">Today</div>
+                           </div>
+                           <div className="bg-zinc-50 border border-zinc-100 text-zinc-500 rounded px-2 py-1 text-[9px] text-center min-w-[36px]">
+                              <div className="font-medium">Tomorrow</div>
+                           </div>
+                           <div className="bg-zinc-50 border border-zinc-100 text-zinc-500 rounded px-2 py-1 text-[9px] text-center min-w-[36px]">
+                              <div className="font-medium">Fri</div>
+                           </div>
+                        </div>
                       </div>
-                      <div className="h-8 bg-zinc-900 rounded w-full flex items-center justify-center text-[10px] font-bold text-white">Book Table</div>
+
+                      {/* Time Selector */}
+                      <div>
+                         <div className="text-[9px] font-bold text-zinc-400 uppercase mb-1">Time</div>
+                         <div className="grid grid-cols-3 gap-1.5">
+                            <div className="border border-zinc-200 rounded py-1 text-center text-[9px] text-zinc-500">19:00</div>
+                            <div className="bg-emerald-50 border border-emerald-200 rounded py-1 text-center text-[9px] text-emerald-700 font-bold">19:15</div>
+                            <div className="border border-zinc-200 rounded py-1 text-center text-[9px] text-zinc-500">19:30</div>
+                         </div>
+                      </div>
+                      
+                      {/* Guest Count */}
+                      <div className="flex justify-between items-center border border-zinc-100 rounded p-1.5">
+                         <div className="flex items-center gap-1">
+                            <User size={10} className="text-zinc-400"/>
+                            <span className="text-[9px] font-medium text-zinc-700">2 Guests</span>
+                         </div>
+                         <ChevronRight size={10} className="text-zinc-300"/>
+                      </div>
+
+                      {/* CTA */}
+                      <div className="bg-zinc-900 rounded-md py-2 w-full flex items-center justify-center text-[10px] font-bold text-white shadow-md shadow-zinc-200">
+                         Confirm Booking
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -61,9 +100,9 @@ const Features: React.FC = () => {
               </div>
             </div>
             <div className="order-1 md:order-2">
-              <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 mb-4">Booking, not Bureaucracy.</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 mb-4">The 12-Second Reservation.</h3>
               <p className="text-lg text-zinc-600 leading-relaxed">
-                Stop losing diners to "Create Account" screens. Our widget lets guests book in 12 seconds without a password.
+                Your guests are hungry, not patient. Our 'Guest Mode' removes the forced sign-ups and app downloads used by the giants. We get the booking confirmed before they click away.
               </p>
             </div>
           </div>
@@ -76,7 +115,7 @@ const Features: React.FC = () => {
               <div className="order-1 mb-6">
                 <h3 className="text-xl md:text-2xl font-bold text-zinc-900 mb-3">Silence the Empty Table.</h3>
                 <p className="text-base text-zinc-600 leading-relaxed">
-                  Automatic SMS reminders and flexible deposit rules reduce no-shows by 80%. We chase the guest so you don't have to.
+                  Manual confirmation calls are over. Tabley automates SMS reminders and secures deposits for large groups. We chase the guest so your host stand doesn't have to.
                 </p>
               </div>
               
@@ -112,9 +151,9 @@ const Features: React.FC = () => {
             {/* FEATURE 3: Data Vault */}
             <div className="bg-white rounded-3xl p-8 border border-zinc-100 shadow-soft flex flex-col overflow-hidden">
               <div className="order-1 mb-6">
-                 <h3 className="text-xl md:text-2xl font-bold text-zinc-900 mb-3">Your Guests. Your Data.</h3>
+                 <h3 className="text-xl md:text-2xl font-bold text-zinc-900 mb-3">Your Data. Exclusively Yours.</h3>
                  <p className="text-base text-zinc-600 leading-relaxed">
-                   Unlike the giants, we never market competitors to your diners. Export your customer list anytime. It belongs to you.
+                   Marketplaces use your customer data to recommend other restaurants. We don't. Your guest list is your asset—encrypted, exportable, and never shared.
                  </p>
               </div>
 
@@ -141,6 +180,111 @@ const Features: React.FC = () => {
                        </div>
                     </div>
                  </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* ROW 3: NEW FEATURES (Kitchen Pulse & Guest Memory) */}
+          <div className="grid md:grid-cols-2 gap-6">
+
+            {/* FEATURE 4: Kitchen Pacing */}
+            <div className="bg-white rounded-3xl p-8 border border-zinc-100 shadow-soft flex flex-col overflow-hidden">
+              <div className="order-1 mb-6">
+                <h3 className="text-xl md:text-2xl font-bold text-zinc-900 mb-3">Kitchen Pacing Control.</h3>
+                <p className="text-base text-zinc-600 leading-relaxed">
+                  Don't slam the pass. Set cover limits per 15-minute slot to keep the kitchen flowing smoothly. Available tables doesn't always mean available chefs.
+                </p>
+              </div>
+              
+              <div className="order-2 flex-1 bg-zinc-50 rounded-2xl relative flex items-center justify-center min-h-[250px] p-6">
+                  <div className="bg-white rounded-xl shadow-md border border-zinc-100 w-full max-w-[280px] p-4">
+                     <div className="flex items-center justify-between mb-4 border-b border-zinc-100 pb-2">
+                        <div className="flex items-center gap-2">
+                            <ChefHat size={16} className="text-zinc-400"/>
+                            <span className="text-xs font-bold text-zinc-700 uppercase">Service Flow</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                            <span className="text-[10px] text-emerald-600 font-bold">Live</span>
+                        </div>
+                     </div>
+                     
+                     <div className="space-y-3">
+                        {/* Slot 1 */}
+                        <div>
+                            <div className="flex justify-between text-[10px] font-medium mb-1">
+                                <span className="text-zinc-500">19:00 - 19:15</span>
+                                <span className="text-red-500 font-bold">Full (24/24)</span>
+                            </div>
+                            <div className="h-1.5 w-full bg-zinc-100 rounded-full overflow-hidden">
+                                <div className="h-full w-full bg-red-400 rounded-full"></div>
+                            </div>
+                        </div>
+                         {/* Slot 2 */}
+                        <div>
+                            <div className="flex justify-between text-[10px] font-medium mb-1">
+                                <span className="text-zinc-500">19:15 - 19:30</span>
+                                <span className="text-orange-500 font-bold">Busy (18/24)</span>
+                            </div>
+                            <div className="h-1.5 w-full bg-zinc-100 rounded-full overflow-hidden">
+                                <div className="h-full w-[75%] bg-orange-400 rounded-full"></div>
+                            </div>
+                        </div>
+                         {/* Slot 3 */}
+                        <div>
+                            <div className="flex justify-between text-[10px] font-medium mb-1">
+                                <span className="text-zinc-500">19:30 - 19:45</span>
+                                <span className="text-emerald-500 font-bold">Open (8/24)</span>
+                            </div>
+                            <div className="h-1.5 w-full bg-zinc-100 rounded-full overflow-hidden">
+                                <div className="h-full w-[33%] bg-emerald-400 rounded-full"></div>
+                            </div>
+                        </div>
+                     </div>
+                  </div>
+              </div>
+            </div>
+
+            {/* FEATURE 5: Guest Memory */}
+            <div className="bg-white rounded-3xl p-8 border border-zinc-100 shadow-soft flex flex-col overflow-hidden">
+              <div className="order-1 mb-6">
+                <h3 className="text-xl md:text-2xl font-bold text-zinc-900 mb-3">Automated Guest Memory.</h3>
+                <p className="text-base text-zinc-600 leading-relaxed">
+                  Tabley remembers what your staff forget. Auto-tag VIPs, allergies, and history. The system flags important guests before they even walk through the door.
+                </p>
+              </div>
+              
+              <div className="order-2 flex-1 bg-zinc-50 rounded-2xl relative flex items-center justify-center min-h-[250px] p-6">
+                 {/* Card */}
+                  <div className="bg-white rounded-xl shadow-lg border border-zinc-100 w-full max-w-[280px] p-5 relative overflow-hidden">
+                     {/* Decorative top strip */}
+                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-emerald-500"></div>
+                     
+                     <div className="flex items-start gap-4 mb-4">
+                        <div className="w-12 h-12 rounded-full bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-400 font-bold text-lg">
+                            JD
+                        </div>
+                        <div>
+                            <h4 className="font-bold text-zinc-900 text-sm">John Doe</h4>
+                            <div className="text-[10px] text-zinc-500 flex items-center gap-1">
+                                <Activity size={10} /> 5th Visit · Avg Spend £45
+                            </div>
+                        </div>
+                     </div>
+                     
+                     <div className="flex flex-wrap gap-2">
+                        <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-purple-50 text-purple-600 border border-purple-100 text-[10px] font-bold uppercase tracking-wide">
+                            <Tags size={10} /> VIP
+                        </span>
+                         <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-orange-50 text-orange-600 border border-orange-100 text-[10px] font-bold uppercase tracking-wide">
+                            <AlertCircle size={10} /> Gluten Free
+                        </span>
+                        <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-zinc-100 text-zinc-500 border border-zinc-200 text-[10px] font-bold uppercase tracking-wide">
+                             Table 4 Pref
+                        </span>
+                     </div>
+                  </div>
               </div>
             </div>
 

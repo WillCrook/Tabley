@@ -3,7 +3,7 @@ import { Check, X } from 'lucide-react';
 
 const CompetitorAnalysis: React.FC = () => {
   const competitors = [
-    { name: 'OpenTable', fee: '£1.00+/cover', data: 'They Keep It', vibe: 'Corporate' },
+    { name: 'OpenTable', fee: '£1.00+/cover', data: 'They Keep It', vibe: 'A Billboard for Them' },
     { name: 'ResDiary', fee: 'Complex Tier', data: 'Shared', vibe: 'Clunky IT' },
     { name: 'Quandoo', fee: 'Commission', data: 'They Keep It', vibe: 'Discount Yellow' },
   ];
@@ -14,28 +14,28 @@ const CompetitorAnalysis: React.FC = () => {
         <div className="flex flex-col md:flex-row gap-12 items-center">
           
           <div className="w-full md:w-1/3 space-y-6">
-            <h2 className="text-3xl font-bold text-zinc-900">Why change? <br/>Because you're being underserved.</h2>
+            <h2 className="text-3xl font-bold text-zinc-900">Why the best independents are switching.</h2>
             <p className="text-zinc-600">
-              Competitors focus on major chains and big cities. They charge per cover and hoard your data. Tabley is built for the independent hero.
+              Legacy systems were built for chains. Tabley is built for the craft. We are the premium alternative to the clunky giants.
             </p>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="mt-1 bg-emerald-100 p-1 rounded-full">
                   <Check className="w-3 h-3 text-emerald-700" />
                 </div>
-                <p className="text-sm text-zinc-700"><span className="font-bold">Zero Cover Fees:</span> Keep your margins.</p>
+                <p className="text-sm text-zinc-700"><span className="font-bold">0% Commission:</span> Stop paying for your own hard-earned customers.</p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="mt-1 bg-emerald-100 p-1 rounded-full">
                   <Check className="w-3 h-3 text-emerald-700" />
                 </div>
-                <p className="text-sm text-zinc-700"><span className="font-bold">Apple-like Interface:</span> Staff actually like using it.</p>
+                <p className="text-sm text-zinc-700"><span className="font-bold">A Silent Extension of You:</span> We don't plaster our logo all over your booking flow.</p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="mt-1 bg-emerald-100 p-1 rounded-full">
                   <Check className="w-3 h-3 text-emerald-700" />
                 </div>
-                <p className="text-sm text-zinc-700"><span className="font-bold">Premium Minimalist Aesthetic:</span> Not discount yellow.</p>
+                <p className="text-sm text-zinc-700"><span className="font-bold">Premium Minimalist Aesthetic:</span> Designed to disappear.</p>
               </div>
             </div>
           </div>
@@ -46,7 +46,7 @@ const CompetitorAnalysis: React.FC = () => {
                 <div className="col-span-1">Platform</div>
                 <div className="col-span-1 text-center">Fees</div>
                 <div className="col-span-1 text-center">Customer Data</div>
-                <div className="col-span-1 text-center">Vibe</div>
+                <div className="col-span-1 text-center">Branding</div>
               </div>
               
               {/* Competitors */}
@@ -69,7 +69,7 @@ const CompetitorAnalysis: React.FC = () => {
                   <Check size={14} /> Flat Fee
                 </div>
                 <div className="col-span-1 text-center text-emerald-600 font-bold pt-2">You Own It</div>
-                <div className="col-span-1 text-center text-emerald-600 font-bold pt-2">Premium</div>
+                <div className="col-span-1 text-center text-emerald-600 font-bold pt-2">Invisible</div>
               </div>
 
             </div>
