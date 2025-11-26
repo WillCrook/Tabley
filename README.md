@@ -6,7 +6,7 @@ A simple React app for our landing page.
 npm run deploy
 
 ## Publish to Pages
-npx gh-pages -d dist -C CNAME -t
+npx gh-pages -d dist
 
 ## Test Locally
 npm run dev
