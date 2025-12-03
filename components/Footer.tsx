@@ -3,9 +3,11 @@ import React from 'react';
 
 interface FooterProps {
   onPrivacy?: () => void;
+  onTerms?: () => void;
+  onContact?: () => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ onPrivacy }) => {
+const Footer: React.FC<FooterProps> = ({ onPrivacy, onTerms, onContact }) => {
   return (
     <footer className="bg-zinc-900 text-white py-12 border-t border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,8 +26,18 @@ const Footer: React.FC<FooterProps> = ({ onPrivacy }) => {
             >
               Privacy Policy
             </button>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Contact</a>
+            <button 
+              onClick={(e) => { e.preventDefault(); if(onTerms) onTerms(); }} 
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Terms of Service
+            </button>
+            <button 
+              onClick={(e) => { e.preventDefault(); if(onContact) onContact(); }} 
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Contact
+            </button>
           </div>
 
           <div className="text-zinc-500 text-xs">

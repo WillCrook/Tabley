@@ -14,10 +14,13 @@ import MouseGlow from './components/MouseGlow';
 import BookDemo from './components/BookDemo';
 import PricingPage from './components/PricingPage';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
+import ContactPage from './components/ContactPage';
+import FeaturesPage from './components/FeaturesPage';
 
 const App: React.FC = () => {
   // Simple state-based routing
-  const [currentPage, setCurrentPage] = useState<'home' | 'book-demo' | 'pricing' | 'privacy'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'book-demo' | 'pricing' | 'privacy' | 'terms' | 'contact' | 'features'>('home');
 
   // Scroll to top when page changes
   useEffect(() => {
@@ -32,8 +35,20 @@ const App: React.FC = () => {
     setCurrentPage('pricing');
   };
 
+  const handleFeatures = () => {
+    setCurrentPage('features');
+  };
+
   const handlePrivacy = () => {
     setCurrentPage('privacy');
+  };
+
+  const handleTerms = () => {
+    setCurrentPage('terms');
+  };
+
+  const handleContact = () => {
+    setCurrentPage('contact');
   };
 
   const handleBackToHome = () => {
@@ -44,13 +59,39 @@ const App: React.FC = () => {
     return <BookDemo onBack={handleBackToHome} />;
   }
 
+  // Wrapper for pages that share the standard layout structure (Navbar + Content + Footer)
+  const renderStandardLayout = (content: React.ReactNode) => (
+    <div className="min-h-screen bg-white antialiased selection:bg-emerald-100 selection:text-emerald-900 relative">
+      <MouseGlow />
+      <Navbar onBookDemo={handleBookDemo} onPricing={handlePricing} onFeatures={handleFeatures} onHome={handleBackToHome} />
+      {content}
+      <Footer onPrivacy={handlePrivacy} onTerms={handleTerms} onContact={handleContact} />
+    </div>
+  );
+
   if (currentPage === 'privacy') {
+    return renderStandardLayout(<PrivacyPolicy onBack={handleBackToHome} />);
+  }
+
+  if (currentPage === 'terms') {
+    return renderStandardLayout(<TermsOfService onBack={handleBackToHome} />);
+  }
+
+  if (currentPage === 'contact') {
+    return renderStandardLayout(<ContactPage onBack={handleBackToHome} />);
+  }
+
+  if (currentPage === 'features') {
+    return renderStandardLayout(<FeaturesPage onBack={handleBackToHome} onBookDemo={handleBookDemo} />);
+  }
+
+  if (currentPage === 'pricing') {
     return (
       <div className="min-h-screen bg-white antialiased selection:bg-emerald-100 selection:text-emerald-900 relative">
         <MouseGlow />
-        <Navbar onBookDemo={handleBookDemo} onPricing={handlePricing} onHome={handleBackToHome} />
-        <PrivacyPolicy onBack={handleBackToHome} />
-        <Footer onPrivacy={handlePrivacy} />
+        <Navbar onBookDemo={handleBookDemo} onPricing={handlePricing} onFeatures={handleFeatures} onHome={handleBackToHome} />
+        <PricingPage onBookDemo={handleBookDemo} />
+        <Footer onPrivacy={handlePrivacy} onTerms={handleTerms} onContact={handleContact} />
       </div>
     );
   }
@@ -58,24 +99,18 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-white antialiased selection:bg-emerald-100 selection:text-emerald-900 relative">
       <MouseGlow />
-      <Navbar onBookDemo={handleBookDemo} onPricing={handlePricing} onHome={handleBackToHome} />
+      <Navbar onBookDemo={handleBookDemo} onPricing={handlePricing} onFeatures={handleFeatures} onHome={handleBackToHome} />
       <main>
-        {currentPage === 'home' ? (
-          <>
-            <Hero onBookDemo={handleBookDemo} />
-            <SocialProof />
-            <WhoWeAre />
-            <Features />
-            <WhyChooseUs />
-            <Reviews />
-            <FAQ />
-            <CTA onBookDemo={handleBookDemo} />
-          </>
-        ) : (
-          <PricingPage onBookDemo={handleBookDemo} />
-        )}
+        <Hero onBookDemo={handleBookDemo} />
+        <SocialProof />
+        <WhoWeAre />
+        <Features />
+        <WhyChooseUs />
+        <Reviews />
+        <FAQ />
+        <CTA onBookDemo={handleBookDemo} />
       </main>
-      <Footer onPrivacy={handlePrivacy} />
+      <Footer onPrivacy={handlePrivacy} onTerms={handleTerms} onContact={handleContact} />
     </div>
   );
 };

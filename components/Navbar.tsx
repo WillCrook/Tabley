@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
 import { Menu, X } from 'lucide-react';
@@ -6,9 +7,10 @@ interface NavbarProps {
   onBookDemo: () => void;
   onPricing: () => void;
   onHome: () => void;
+  onFeatures?: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onBookDemo, onPricing, onHome }) => {
+const Navbar: React.FC<NavbarProps> = ({ onBookDemo, onPricing, onHome, onFeatures }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -19,6 +21,16 @@ const Navbar: React.FC<NavbarProps> = ({ onBookDemo, onPricing, onHome }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleFeaturesClick = () => {
+    if (onFeatures) {
+      onFeatures();
+    } else {
+      // Fallback if no specific handler, try to scroll to ID
+      const el = document.getElementById('features');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
@@ -60,7 +72,7 @@ const Navbar: React.FC<NavbarProps> = ({ onBookDemo, onPricing, onHome }) => {
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-1">
               <button 
-                onClick={onHome} 
+                onClick={handleFeaturesClick} 
                 className="px-5 py-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 transition-colors rounded-full hover:bg-zinc-50"
               >
                 Features
@@ -101,7 +113,7 @@ const Navbar: React.FC<NavbarProps> = ({ onBookDemo, onPricing, onHome }) => {
             <div className="bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-3xl shadow-2xl p-2 flex flex-col gap-1">
               <button 
                 className="w-full text-left px-5 py-3.5 text-base font-medium text-zinc-900 hover:bg-zinc-50 rounded-2xl transition-colors"
-                onClick={() => { setMobileMenuOpen(false); onHome(); }}
+                onClick={() => { setMobileMenuOpen(false); handleFeaturesClick(); }}
               >
                 Features
               </button>
